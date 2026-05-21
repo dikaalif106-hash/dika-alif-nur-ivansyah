@@ -14,7 +14,6 @@ Saya tertarik pada:
 - Linux Server
 - Networking
 - Web Development
-- Server Administration
 
 ---
 
