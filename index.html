@@ -1,392 +1,250 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dika Alif | Personal Website</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
       font-family:'Poppins',sans-serif;
-      scroll-behavior:smooth;
     }
 
     body{
+      overflow:hidden;
       background:#0f172a;
       color:white;
-      overflow-x:hidden;
-    }
-
-    header{
-      width:100%;
-      height:100vh;
-      background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
-      position:relative;
-    }
-
-    .hero h1{
-      font-size:60px;
-      margin-bottom:10px;
-      animation:fadeUp 1s ease;
-    }
-
-    .hero p{
-      font-size:20px;
-      opacity:0.9;
-      animation:fadeUp 1.4s ease;
-    }
-
-    .hero button{
-      margin-top:30px;
-      padding:14px 30px;
-      border:none;
-      border-radius:30px;
-      background:#3b82f6;
-      color:white;
-      font-size:16px;
-      cursor:pointer;
-      transition:0.3s;
-      animation:fadeUp 1.8s ease;
-    }
-
-    .hero button:hover{
-      background:#2563eb;
-      transform:scale(1.05);
     }
 
     nav{
       position:fixed;
       top:0;
       width:100%;
-      background:rgba(15,23,42,0.85);
-      backdrop-filter:blur(10px);
       display:flex;
       justify-content:center;
-      padding:15px;
+      gap:40px;
+      padding:20px;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
       z-index:1000;
     }
 
-    nav a{
+    nav button{
+      background:none;
+      border:none;
       color:white;
-      margin:0 20px;
-      text-decoration:none;
-      font-weight:500;
-      position:relative;
-    }
-
-    nav a::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-5px;
-      width:0%;
-      height:2px;
-      background:#3b82f6;
+      font-size:16px;
+      cursor:pointer;
       transition:0.3s;
     }
 
-    nav a:hover::after{
-      width:100%;
+    nav button:hover{
+      color:#60a5fa;
+      transform:scale(1.1);
+    }
+
+    .container{
+      display:flex;
+      width:400vw;
+      height:100vh;
+      transition:1s ease;
     }
 
     section{
-      min-height:100vh;
+      width:100vw;
+      height:100vh;
       padding:120px 10%;
+      flex-shrink:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
     }
 
-    .title{
-      font-size:40px;
+    h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    h2{
+      font-size:45px;
       margin-bottom:20px;
       color:#60a5fa;
     }
 
+    p{
+      max-width:800px;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:15px;
+      margin-top:30px;
+    }
+
+    .skill{
+      background:#1e293b;
+      padding:15px 25px;
+      border-radius:12px;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      background:#2563eb;
+      transform:translateY(-5px);
+    }
+
+    .activities{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      width:100%;
+      margin-top:30px;
+    }
+
     .card{
       background:#1e293b;
+      padding:25px;
       border-radius:20px;
-      padding:30px;
-      margin-top:20px;
-      box-shadow:0 0 20px rgba(0,0,0,0.3);
       transition:0.3s;
     }
 
     .card:hover{
       transform:translateY(-10px);
-    }
-
-    .skills{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-      margin-top:30px;
-    }
-
-    .skill-box{
-      background:#334155;
-      padding:20px;
-      border-radius:15px;
-      text-align:center;
-      transition:0.3s;
-    }
-
-    .skill-box:hover{
-      background:#3b82f6;
-      transform:scale(1.05);
-    }
-
-    .activity-list{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      margin-top:30px;
-    }
-
-    .activity{
-      background:#1e293b;
-      padding:25px;
-      border-radius:20px;
-      transition:0.3s;
-      border:1px solid transparent;
-    }
-
-    .activity:hover{
-      border:1px solid #3b82f6;
-      transform:translateY(-8px);
+      background:#2563eb;
     }
 
     .contact{
-      margin-top:30px;
       line-height:2;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      background:#020617;
-      color:#94a3b8;
-    }
-
-    .tabs{
-      display:flex;
-      gap:15px;
-      margin-top:20px;
-      flex-wrap:wrap;
-    }
-
-    .tab-btn{
-      padding:10px 20px;
-      border:none;
-      border-radius:10px;
-      background:#334155;
-      color:white;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .tab-btn.active{
-      background:#3b82f6;
-    }
-
-    .tab-content{
-      display:none;
-      margin-top:25px;
-      animation:fade 0.5s ease;
-    }
-
-    .tab-content.active{
-      display:block;
-    }
-
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+      font-size:20px;
     }
 
     @media(max-width:768px){
-      .hero h1{
+
+      h1{
         font-size:40px;
       }
 
-      nav{
-        flex-wrap:wrap;
+      h2{
+        font-size:30px;
       }
 
-      nav a{
-        margin:10px;
+      p{
+        font-size:15px;
       }
+
+      nav{
+        gap:20px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#activities">Activities</a>
-    <a href="#contact">Contact</a>
+    <button onclick="slide(0)">Home</button>
+    <button onclick="slide(1)">About</button>
+    <button onclick="slide(2)">Activities</button>
+    <button onclick="slide(3)">Contact</button>
   </nav>
 
-  <!-- HOME -->
-  <header id="home">
-    <div class="hero">
+  <div class="container" id="slider">
+
+    <!-- HOME -->
+    <section>
       <h1>Dika Alif</h1>
-      <p>TKJ Student • Basic Networking • Basic Cisco</p>
-      <button onclick="document.getElementById('about').scrollIntoView();">
-        Explore More
-      </button>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="title">About Me</h2>
-
-    <div class="card">
       <p>
-        Halo, saya <b>Dika Alif</b>. Saya bersekolah di <b>SMK Sandikta</b>
-        jurusan <b>TKJ (Teknik Komputer dan Jaringan)</b>.
-        Saya tertarik dalam dunia server, networking, dan Linux.
+        TKJ Student • Linux Server • Networking 
+      </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>About Me</h2>
+
+      <p>
+        Halo, saya Dika Alif. Saya bersekolah di SMK Sandikta jurusan
+        Teknik Komputer dan Jaringan (TKJ). Saya tertarik dalam dunia
+        networking, Linux server, dan web server administration.Saya memiliki ketertarikan besar pada dunia teknologi, khususnya networking, Linux server, dan web development. Saya senang mempelajari bagaimana sebuah server bekerja, bagaimana jaringan dapat saling terhubung, serta bagaimana sebuah website dapat diakses melalui internet.
       </p>
 
-      <div class="tabs">
-        <button class="tab-btn active" onclick="openTab('skill')">Skills</button>
-        <button class="tab-btn" onclick="openTab('learn')">Learning</button>
+      <div class="skills">
+        <div class="skill">DNS Server</div>
+        <div class="skill">Web Server</div>
+        <div class="skill">SSH Server</div>
+        <div class="skill">Mikrotik Dasar</div>
+        <div class="skill">Cisco Dasar</div>
+        <div class="skill">Debian Linux</div>
       </div>
+    </section>
 
-      <div class="tab-content active" id="skill">
-        <div class="skills">
-          <div class="skill-box">DNS Server</div>
-          <div class="skill-box">Web Server</div>
-          <div class="skill-box">SSH Server</div>
-          <div class="skill-box">Mikrotik (Dasar)</div>
-          <div class="skill-box">Cisco (Dasar)</div>
-          <div class="skill-box">Linux Debian</div>
-        </div>
-      </div>
+    <!-- ACTIVITIES -->
+    <section>
 
-      <div class="tab-content" id="learn">
+      <h2>Activities</h2>
+
+      <div class="activities">
+
         <div class="card">
-          <p>
-            Saat ini saya sedang belajar lebih dalam mengenai Linux server,
-            networking, konfigurasi Debian, dan pengembangan website.
-          </p>
+          <h3>DNS Server</h3>
+          <p>Saya belajar membuat dan mengkonfigurasi DNS Server menggunakan Debian Linux. Dalam kegiatan ini saya mempelajari cara menghubungkan domain dengan alamat IP menggunakan layanan Bind9 sehingga client dapat mengakses server dengan lebih mudah menggunakan nama domain.</p>
         </div>
+
+        <div class="card">
+          <h3>Web Server</h3>
+          <p>Saya membuat web server menggunakan Debian Linux dengan Apache2. Saya belajar cara meng-host website, mengatur virtual host, serta memastikan website dapat diakses dengan baik melalui jaringan lokal maupun internet.</p>
+        </div>
+
+        <div class="card">
+          <h3>SSH Server</h3>
+          <p>Saya mempelajari cara membuat SSH Server di Debian untuk melakukan remote access ke server secara aman. Dalam kegiatan ini saya belajar konfigurasi OpenSSH.</p>
+        </div>
+
+        <div class="card">
+          <h3>WordPress</h3>
+          <p>Saya belajar menginstall dan mengkonfigurasi WordPress di Debian menggunakan Apache, PHP, dan MySQL/MariaDB.</p>
+        </div>
+
       </div>
 
-    </div>
-  </section>
+    </section>
 
-  <!-- ACTIVITIES -->
-  <section id="activities">
-    <h2 class="title">Activities</h2>
+    <!-- CONTACT -->
+    <section>
 
-    <div class="activity-list">
-
-      <div class="activity">
-        <h3>DNS Server Debian</h3>
-        <p>
-          Saya belajar membuat dan mengkonfigurasi DNS Server menggunakan Debian Linux. Dalam kegiatan ini saya mempelajari cara menghubungkan domain dengan alamat IP menggunakan layanan Bind9 sehingga client dapat mengakses server dengan lebih mudah menggunakan nama domain.
-        </p>
-      </div>
-
-      <div class="activity">
-        <h3>Web Server Debian</h3>
-        <p>
-          Saya membuat web server menggunakan Debian Linux dengan Apache2. Saya belajar cara meng-host website, mengatur virtual host, serta memastikan website dapat diakses dengan baik melalui jaringan lokal maupun internet.
-        </p>
-      </div>
-
-      <div class="activity">
-        <h3>SSH Server Debian</h3>
-        <p>
-          Saya mempelajari cara membuat SSH Server di Debian untuk melakukan remote access ke server secara aman. Dalam kegiatan ini saya belajar konfigurasi OpenSSH.
-        </p>
-      </div>
-
-      <div class="activity">
-        <h3>WordPress Debian</h3>
-        <p>
-          Saya belajar menginstall dan mengkonfigurasi WordPress di Debian menggunakan Apache, PHP, dan MySQL/MariaDB. Saya juga mempelajari cara membuat website dinamis dan mengelola tampilan website menggunakan WordPress.
-        </p>
-      </div>
-
-      <div class="activity">
-        <h3>Networking practice</h3>
-        <p>
-          Saya juga mempelajari dasar networking seperti konfigurasi IP address, subnetting, routing dasar, dan pengenalan perangkat jaringan menggunakan Mikrotik dan Cisco dasar.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="title">Contact</h2>
-
-    <div class="card">
-      <p>
-        Jika ingin menghubungi saya, silakan melalui email atau Instagram berikut.
-      </p>
+      <h2>Contact</h2>
 
       <div class="contact">
-        <p>📧 Email : dikaalif106@gmail.com</p>
-        <p>📷 Instagram : @axdikaal</p>
+        <p>📧 dikaalif106@gmail.com</p>
+        <p>📷 @axdikaal</p>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    <p>© 2026 Dika Alif | Personal Website</p>
-  </footer>
+    </section>
+
+  </div>
 
   <script>
-    function openTab(tabId){
 
-      let tabs = document.querySelectorAll('.tab-content');
-      let buttons = document.querySelectorAll('.tab-btn');
-
-      tabs.forEach(tab => {
-        tab.classList.remove('active');
-      });
-
-      buttons.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      document.getElementById(tabId).classList.add('active');
-
-      event.target.classList.add('active');
+    function slide(index){
+      const slider = document.getElementById('slider');
+      slider.style.transform = `translateX(-${index * 100}vw)`;
     }
+
   </script>
 
 </body>
